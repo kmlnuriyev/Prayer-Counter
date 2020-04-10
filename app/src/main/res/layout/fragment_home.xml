@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment">
+
+    <TextView
+        android:id="@+id/textViewFajr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="200dp"
+        android:text="@string/text_fajr"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewDhuhr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_dhuhr"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFajr" />
+
+    <TextView
+        android:id="@+id/textViewAsr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_asr"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDhuhr" />
+
+    <TextView
+        android:id="@+id/textViewMaghrib"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_maghrib"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAsr" />
+
+    <TextView
+        android:id="@+id/textViewIsha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_isha"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMaghrib" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/button_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIsha" />
+
+    <EditText
+        android:id="@+id/editTextFajr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/text_count"
+        android:inputType="number"
+        android:textAlignment="center"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewFajr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewFajr"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/editTextDhuhr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/text_count"
+        android:inputType="number"
+        android:textAlignment="center"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewDhuhr"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/editTextAsr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/text_count"
+        android:inputType="number"
+        android:textAlignment="center"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewAsr"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/editTextMaghrib"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/text_count"
+        android:inputType="number"
+        android:textAlignment="center"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewMaghrib"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/editTextIsha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/text_count"
+        android:inputType="number"
+        android:textAlignment="center"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewIsha"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:autofillHints="" />
+</androidx.constraintlayout.widget.ConstraintLayout>
