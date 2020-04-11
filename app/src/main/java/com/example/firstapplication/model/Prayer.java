@@ -18,14 +18,6 @@ public class Prayer {
     public Prayer() {
     }
 
-    public Prayer(int fajr, int dhuhr, int asr, int maghrib, int isha) {
-        this.fajr = fajr;
-        this.dhuhr = dhuhr;
-        this.asr = asr;
-        this.maghrib = maghrib;
-        this.isha = isha;
-    }
-
     public int getId() {
         return id;
     }
