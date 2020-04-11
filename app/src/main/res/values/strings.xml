@@ -5,6 +5,8 @@
     <string name="button_add">Add</string>
     <string name="button_extract">Extract</string>
 
+    <string name="content_description_mosque">Mosque</string>
+
     <string name="home_fragment">HOME fragment selected</string>
     <string name="history_fragment">HISTORY fragment selected</string>
     <string name="home_nav_btn">Add</string>

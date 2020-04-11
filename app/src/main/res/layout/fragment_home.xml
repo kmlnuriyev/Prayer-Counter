@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/content_description_mosque"
+        android:src="@drawable/ic_mosque"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textViewFajr"
         android:layout_width="wrap_content"
