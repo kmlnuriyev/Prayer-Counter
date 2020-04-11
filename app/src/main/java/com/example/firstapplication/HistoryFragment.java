@@ -38,7 +38,7 @@ public class HistoryFragment extends Fragment {
     private TextView textViewAsrDb;
     private TextView textViewMaghribDb;
     private TextView textViewIshaDb;
-//    private TextView textViewTotal;
+    private TextView textViewTotal;
 
     public HistoryFragment() {
         // Required empty public constructor
@@ -83,7 +83,7 @@ public class HistoryFragment extends Fragment {
         textViewAsrDb = view.findViewById(R.id.textViewAsrDb);
         textViewMaghribDb = view.findViewById(R.id.textViewMaghribDb);
         textViewIshaDb = view.findViewById(R.id.textViewIshaDb);
-//        textViewTotal = view.findViewById(R.id.textViewTotal);
+        textViewTotal = view.findViewById(R.id.textViewTotal);
 
         for (Prayer prayer:MainActivity.appDatabase.prayerDao().findAll()) {
 
@@ -93,13 +93,13 @@ public class HistoryFragment extends Fragment {
             textViewMaghribDb.setText(String.valueOf(prayer.getMaghrib()));
             textViewIshaDb.setText(String.valueOf(prayer.getIsha()));
 
-            /*dayCount = NumberUtils.findSmallestNumber(Arrays.asList(prayer.getFajr(),
+            dayCount = NumberUtils.findLargestNumber(Arrays.asList(prayer.getFajr(),
                     prayer.getDhuhr(),
                     prayer.getAsr(),
                     prayer.getMaghrib(),
                     prayer.getIsha()));
 
-            textViewTotal.setText(dayCount + " days completed");*/
+            textViewTotal.setText(dayCount + " " + getString(R.string.result_message));
 
         }
 

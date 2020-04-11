@@ -1,27 +1,30 @@
 <resources>
-    <string name="app_name">Namaz counter</string>
-    <string name="text_name">Name</string>
-    <string name="text_email">E-mail</string>
-    <string name="button_add">Add</string>
-    <string name="button_extract">Extract</string>
+    <!-- Application name -->
+    <string name="app_name">Qəza Namazları Hesabatım</string>
 
+    <!-- Button values -->
+    <string name="button_add">Əlavə et</string>
+    <string name="button_extract">Çıxar</string>
+
+    <!-- Content description for images -->
     <string name="content_description_mosque">Mosque</string>
 
-    <string name="home_fragment">HOME fragment selected</string>
-    <string name="history_fragment">HISTORY fragment selected</string>
-    <string name="home_nav_btn">Add</string>
-    <string name="history_nav_btn">Result</string>
+    <!-- Bottom navigation menu -->
+    <string name="home_nav_btn">Qılınmalı</string>
+    <string name="extract_nav_btn">Qılınan</string>
+    <string name="history_nav_btn">Nəticə</string>
 
-    <string name="sample_text">Sample text</string>
+    <!-- Text views -->
+    <string name="text_fajr">Sübh</string>
+    <string name="text_dhuhr">Zöhr</string>
+    <string name="text_asr">Əsr</string>
+    <string name="text_maghrib">Məğrib</string>
+    <string name="text_isha">İşa</string>
 
-    <string name="text_fajr">Fajr</string>
-    <string name="text_dhuhr">Dhuhr</string>
-    <string name="text_asr">Asr</string>
-    <string name="text_maghrib">Maghrib</string>
-    <string name="text_isha">Isha</string>
-    <string name="text_count">Count</string>
-    <string name="extract_nav_btn">Extract</string>
+    <!-- Hint for edit texts -->
+    <string name="text_count">Sayı daxil et</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Messages -->
+    <string name="result_message">qəza gününüz qalıb</string>
+    <string name="top_result_message">QƏZA NAMAZLARININ SAYI</string>
 </resources>

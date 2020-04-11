@@ -6,16 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".HistoryFragment">
 
-    <ImageView
-        android:id="@+id/imageView2"
+    <TextView
+        android:id="@+id/textViewTopMessage"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="@string/content_description_mosque"
-        android:src="@drawable/ic_result_2"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/top_result_message"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="28sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/textViewFajr"/>
 
     <TextView
         android:id="@+id/textViewFajr"
@@ -78,7 +81,6 @@
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/text_count"
         android:textAlignment="center"
         android:textSize="22sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textViewFajr"
@@ -90,7 +92,6 @@
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/text_count"
         android:textAlignment="center"
         android:textSize="22sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textViewDhuhr"
@@ -102,7 +103,6 @@
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/text_count"
         android:textAlignment="center"
         android:textSize="22sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textViewAsr"
@@ -114,7 +114,6 @@
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/text_count"
         android:textAlignment="center"
         android:textSize="22sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textViewMaghrib"
@@ -126,22 +125,22 @@
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/text_count"
         android:textAlignment="center"
         android:textSize="22sp"
         app:layout_constraintBaseline_toBaselineOf="@id/textViewIsha"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!--<TextView
+    <TextView
         android:id="@+id/textViewTotal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:textAlignment="center"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIsha" />-->
+        app:layout_constraintTop_toBottomOf="@+id/textViewIsha" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
