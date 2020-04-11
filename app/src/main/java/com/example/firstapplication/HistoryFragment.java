@@ -31,6 +31,12 @@ public class HistoryFragment extends Fragment {
 
     private TextView textViewPrayerInfo;
 
+    private TextView textViewFajrDb;
+    private TextView textViewDhuhrDb;
+    private TextView textViewAsrDb;
+    private TextView textViewMaghribDb;
+    private TextView textViewIshaDb;
+
     public HistoryFragment() {
         // Required empty public constructor
     }
@@ -44,7 +50,7 @@ public class HistoryFragment extends Fragment {
      * @return A new instance of fragment HistoryFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HistoryFragment newInstance(String param1, String param2) {
+    static HistoryFragment newInstance(String param1, String param2) {
         HistoryFragment fragment = new HistoryFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
@@ -67,25 +73,22 @@ public class HistoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_history, container, false);
-        List<Prayer> prayers = MainActivity.appDatabase.prayerDao().findAll(); // select * from prayer_info;
         StringBuilder sb = new StringBuilder();
 
-        textViewPrayerInfo = view.findViewById(R.id.textViewUsers);
+        textViewFajrDb = view.findViewById(R.id.textViewFajrDb);
+        textViewDhuhrDb = view.findViewById(R.id.textViewDhuhrDb);
+        textViewAsrDb = view.findViewById(R.id.textViewAsrDb);
+        textViewMaghribDb = view.findViewById(R.id.textViewMaghribDb);
+        textViewIshaDb = view.findViewById(R.id.textViewIshaDb);
 
-        for (Prayer prayer:prayers) {
-            sb.append("Fajr = " + prayer.getFajr());
-            sb.append("\n");
-            sb.append("Dhuhr = " + prayer.getDhuhr());
-            sb.append("\n");
-            sb.append("Asr = " + prayer.getAsr());
-            sb.append("\n");
-            sb.append("Maghrib = " + prayer.getMaghrib());
-            sb.append("\n");
-            sb.append("Isha = " + prayer.getIsha());
-            sb.append("\n");
+        for (Prayer prayer:MainActivity.appDatabase.prayerDao().findAll()) {
+
+            textViewFajrDb.setText(String.valueOf(prayer.getFajr()));
+            textViewDhuhrDb.setText(String.valueOf(prayer.getDhuhr()));
+            textViewAsrDb.setText(String.valueOf(prayer.getAsr()));
+            textViewMaghribDb.setText(String.valueOf(prayer.getMaghrib()));
+            textViewIshaDb.setText(String.valueOf(prayer.getIsha()));
         }
-
-        textViewPrayerInfo.setText(sb.toString());
 
         return view;
     }
