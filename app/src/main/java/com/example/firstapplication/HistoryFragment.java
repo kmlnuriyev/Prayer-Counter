@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.firstapplication.model.Prayer;
+import com.example.firstapplication.utils.NumberUtils;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -36,6 +38,7 @@ public class HistoryFragment extends Fragment {
     private TextView textViewAsrDb;
     private TextView textViewMaghribDb;
     private TextView textViewIshaDb;
+    private TextView textViewTotal;
 
     public HistoryFragment() {
         // Required empty public constructor
@@ -73,12 +76,14 @@ public class HistoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_history, container, false);
+        int dayCount;
 
         textViewFajrDb = view.findViewById(R.id.textViewFajrDb);
         textViewDhuhrDb = view.findViewById(R.id.textViewDhuhrDb);
         textViewAsrDb = view.findViewById(R.id.textViewAsrDb);
         textViewMaghribDb = view.findViewById(R.id.textViewMaghribDb);
         textViewIshaDb = view.findViewById(R.id.textViewIshaDb);
+        textViewTotal = view.findViewById(R.id.textViewTotal);
 
         for (Prayer prayer:MainActivity.appDatabase.prayerDao().findAll()) {
 
@@ -87,6 +92,14 @@ public class HistoryFragment extends Fragment {
             textViewAsrDb.setText(String.valueOf(prayer.getAsr()));
             textViewMaghribDb.setText(String.valueOf(prayer.getMaghrib()));
             textViewIshaDb.setText(String.valueOf(prayer.getIsha()));
+
+            dayCount = NumberUtils.findSmallestNumber(Arrays.asList(prayer.getFajr(),
+                    prayer.getDhuhr(),
+                    prayer.getAsr(),
+                    prayer.getMaghrib(),
+                    prayer.getIsha()));
+
+            textViewTotal.setText(dayCount + " days completed");
 
         }
 
