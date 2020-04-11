@@ -62,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
                             // History fragment
                             openFragment(HistoryFragment.newInstance("", ""));
                             return true;
+                        case R.id.navigation_extract:
+                            //Extract fragment
+                            openFragment(ExtractFragment.newInstance("", ""));
+                            return true;
                     }
                     return false;
                 }
