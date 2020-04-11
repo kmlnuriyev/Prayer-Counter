@@ -15,6 +15,9 @@ public class Prayer {
     private int maghrib;
     private int isha;
 
+    public Prayer() {
+    }
+
     public Prayer(int fajr, int dhuhr, int asr, int maghrib, int isha) {
         this.fajr = fajr;
         this.dhuhr = dhuhr;

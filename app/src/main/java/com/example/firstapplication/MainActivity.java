@@ -8,15 +8,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
+import androidx.room.migration.Migration;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.example.firstapplication.database.UserDatabase;
+import com.example.firstapplication.database.AppDatabase;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigation;
 
-    public static UserDatabase userDatabase;
+    public static AppDatabase appDatabase;
 //    private EditText editTextName;
 //    private EditText editTextEmail;
 
@@ -25,7 +27,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        userDatabase = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "userdb").allowMainThreadQueries().build();
+        final Migration MIGRATION_1_2 = new Migration(1, 2) {
+            @Override
+            public void migrate(@NonNull SupportSQLiteDatabase database) {
+                database.execSQL("CREATE TABLE IF NOT EXISTS `prayer_info` " +
+                        "(`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+                        "`fajr` INTEGER NOT NULL, `dhuhr` INTEGER NOT NULL, " +
+                        "`asr` INTEGER NOT NULL, " +
+                        "`maghrib` INTEGER NOT NULL, " +
+                        "`isha` INTEGER NOT NULL)");
+            }
+        };
+
+        appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "userdb")
+                            .allowMainThreadQueries()
+                            .addMigrations(MIGRATION_1_2)
+                            .build();
 
         bottomNavigation = findViewById(R.id.bottomNavigation);
         bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);

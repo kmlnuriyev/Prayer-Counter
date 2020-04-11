@@ -1,9 +1,7 @@
 package com.example.firstapplication;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.firstapplication.model.User;
+import androidx.fragment.app.Fragment;
+
+import com.example.firstapplication.model.Prayer;
 
 
 /**
@@ -71,10 +71,73 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        /** Button to add into database */
         buttonSave = view.findViewById(R.id.buttonSave);
+        /** Edit texts */
+        editTextFajr = view.findViewById(R.id.editTextFajr);
+        editTextDhuhr = view.findViewById(R.id.editTextDhuhr);
+        editTextAsr = view.findViewById(R.id.editTextAsr);
+        editTextMaghrib = view.findViewById(R.id.editTextMaghrib);
+        editTextIsha = view.findViewById(R.id.editTextIsha);
+
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Prayer prayer = new Prayer();
+                prayer.setId(1);
+                if (!TextUtils.isEmpty(editTextFajr.getText()))
+                    prayer.setFajr(Integer.parseInt(editTextFajr.getText().toString()));
+                if (!TextUtils.isEmpty(editTextDhuhr.getText()))
+                    prayer.setDhuhr(Integer.parseInt(editTextDhuhr.getText().toString()));
+                if (!TextUtils.isEmpty(editTextAsr.getText()))
+                    prayer.setAsr(Integer.parseInt(editTextAsr.getText().toString()));
+                if (!TextUtils.isEmpty(editTextMaghrib.getText()))
+                    prayer.setMaghrib(Integer.parseInt(editTextMaghrib.getText().toString()));
+                if (!TextUtils.isEmpty(editTextIsha.getText()))
+                    prayer.setIsha(Integer.parseInt(editTextIsha.getText().toString()));
+
+
+                /** At first we should control the table
+                 * - If the row exists in the table then we should update the row;
+                 * - If the row does not exist then we should insert;
+                 */
+
+                if (MainActivity.appDatabase.prayerDao().findAll().size() == 0) {
+
+                    // Inserting into Prayer table
+                    MainActivity.appDatabase.prayerDao().add(prayer);
+
+                    Toast.makeText(getActivity(), "Added successfully", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    // TODO: If edit text is empty then don't update the column
+
+                    for (Prayer prayerDb: MainActivity.appDatabase.prayerDao().findAll()) {
+                        prayer.setFajr(prayerDb.getFajr() + prayer.getFajr());
+                        prayer.setDhuhr(prayerDb.getDhuhr() + prayer.getDhuhr());
+                        prayer.setAsr(prayerDb.getAsr() + prayer.getAsr());
+                        prayer.setMaghrib(prayerDb.getMaghrib() + prayer.getMaghrib());
+                        prayer.setIsha(prayerDb.getIsha() + prayer.getIsha());
+                    }
+
+                    MainActivity.appDatabase.prayerDao().update(prayer);
+
+                    Toast.makeText(getActivity(), "Modified successfully", Toast.LENGTH_SHORT).show();
+                }
+
+                editTextFajr.setText("");
+                editTextDhuhr.setText("");
+                editTextAsr.setText("");
+                editTextMaghrib.setText("");
+                editTextIsha.setText("");
+            }
+        });
 
         /*buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override

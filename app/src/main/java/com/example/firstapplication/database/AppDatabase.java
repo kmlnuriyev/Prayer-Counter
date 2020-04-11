@@ -8,7 +8,8 @@ import com.example.firstapplication.dao.UserDao;
 import com.example.firstapplication.model.Prayer;
 import com.example.firstapplication.model.User;
 
-@Database(entities = {Prayer.class}, version = 1)
-public abstract class PrayerDatabase extends RoomDatabase {
+@Database(entities = {User.class, Prayer.class}, version = 2)
+public abstract class AppDatabase extends RoomDatabase {
+    public abstract UserDao userDao();
     public abstract PrayerDao prayerDao();
 }

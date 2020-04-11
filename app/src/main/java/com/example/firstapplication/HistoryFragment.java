@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.firstapplication.model.User;
+import com.example.firstapplication.model.Prayer;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ public class HistoryFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private TextView textViewUsers;
+    private TextView textViewPrayerInfo;
 
     public HistoryFragment() {
         // Required empty public constructor
@@ -67,18 +67,25 @@ public class HistoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_history, container, false);
-        List<User> users = MainActivity.userDatabase.userDao().findAll(); // select * from users;
-        String allUsers = null;
+        List<Prayer> prayers = MainActivity.appDatabase.prayerDao().findAll(); // select * from prayer_info;
         StringBuilder sb = new StringBuilder();
 
-        textViewUsers = view.findViewById(R.id.textViewUsers);
+        textViewPrayerInfo = view.findViewById(R.id.textViewUsers);
 
-        for (User user:users) {
-            sb.append(user.getName());
+        for (Prayer prayer:prayers) {
+            sb.append("Fajr = " + prayer.getFajr());
+            sb.append("\n");
+            sb.append("Dhuhr = " + prayer.getDhuhr());
+            sb.append("\n");
+            sb.append("Asr = " + prayer.getAsr());
+            sb.append("\n");
+            sb.append("Maghrib = " + prayer.getMaghrib());
+            sb.append("\n");
+            sb.append("Isha = " + prayer.getIsha());
             sb.append("\n");
         }
 
-        textViewUsers.setText(sb.toString());
+        textViewPrayerInfo.setText(sb.toString());
 
         return view;
     }
