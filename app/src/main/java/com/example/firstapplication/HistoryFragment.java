@@ -73,7 +73,6 @@ public class HistoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_history, container, false);
-        StringBuilder sb = new StringBuilder();
 
         textViewFajrDb = view.findViewById(R.id.textViewFajrDb);
         textViewDhuhrDb = view.findViewById(R.id.textViewDhuhrDb);
@@ -88,6 +87,7 @@ public class HistoryFragment extends Fragment {
             textViewAsrDb.setText(String.valueOf(prayer.getAsr()));
             textViewMaghribDb.setText(String.valueOf(prayer.getMaghrib()));
             textViewIshaDb.setText(String.valueOf(prayer.getIsha()));
+
         }
 
         return view;
