@@ -26,5 +26,5 @@
 
     <!-- Messages -->
     <string name="result_message">qəza gününüz qalıb</string>
-    <string name="top_result_message">QƏZA NAMAZLARININ SAYI</string>
+    <string name="top_result_message">QƏZA NAMAZLARININ\nSAYI</string>
 </resources>
