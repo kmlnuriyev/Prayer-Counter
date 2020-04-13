@@ -1,10 +1,14 @@
 package com.example.firstapplication;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
@@ -17,6 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigation;
+    private Toolbar toolbar;
 
     public static AppDatabase appDatabase;
 //    private EditText editTextName;
@@ -44,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                             .addMigrations(MIGRATION_1_2)
                             .build();
 
+        toolbar = findViewById(R.id.toolbar);
         bottomNavigation = findViewById(R.id.bottomNavigation);
         bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         openFragment(HomeFragment.newInstance("", ""));
@@ -78,18 +84,24 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    /*public void saveOnClick(View view) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
-        editTextName = findViewById(R.id.editTextName);
-        editTextEmail = findViewById(R.id.editTextEmail);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.top_navigation_menu, menu);
 
-        User user = new User(3, editTextName.getText().toString(), editTextEmail.getText().toString());
+        return super.onCreateOptionsMenu(menu);
+    }
 
-        MainActivity.userDatabase.userDao().addUser(user);
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        Toast.makeText(getApplicationContext(), "User successfully saved", Toast.LENGTH_SHORT).show();
+        if (item.getItemId() == R.id.action_about) {
 
-        editTextName.setText("");
-        editTextEmail.setText("");
-    }*/
+            openFragment(AboutFragment.newInstance("", ""));
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }

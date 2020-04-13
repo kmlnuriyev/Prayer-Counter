@@ -13,6 +13,7 @@
     <string name="home_nav_btn">Qılınmalı</string>
     <string name="extract_nav_btn">Qılınan</string>
     <string name="history_nav_btn">Nəticə</string>
+    <string name="about_nav_btn">Haqqında</string>
 
     <!-- Text views -->
     <string name="text_fajr">Sübh</string>
@@ -27,4 +28,14 @@
     <!-- Messages -->
     <string name="result_message">qəza gününüz qalıb</string>
     <string name="top_result_message">QƏZA NAMAZLARININ\nSAYI</string>
+    <string name="about_text_fragment">
+        "   Bu proqram yetkinlik yaşından etibarən namaz qılmayan və o vaxtdan qalan qəza namazlarının qılınması hesabatını aparmaq üçün hazırlanmışdır.
+
+    Qəza namazlarının sayını \"Qılınmalı\" bölməsində daxil etdikdə həmin saylar \"Nəticə\" bölməsində göstərilir.
+
+    Daha sonra namazları qıldıqca \"Qılınan\" bölməsində sayları daxil edərkən \"Nəticə\" bölməsindəki saylardan çıxılma həyata keçirilir.
+
+    \"Nəticə\" bölməsində əlavə olaraq qəza günlərinin sayı da göstərilir. Diqqət edin ki, qəza günlərinin sayı o halda azalır ki, gün üçün bütün namazlar qılınmış olsun.
+
+    Qeyd: \"Nəticə\" bölməsində qılınmayan qəza namazlarının sayı göstərilir."</string>
 </resources>
