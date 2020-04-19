@@ -113,7 +113,7 @@ public class ExtractFragment extends Fragment {
                     // Inserting into Prayer table
 //                    MainActivity.appDatabase.prayerDao().add(prayer);
 
-                    Toast.makeText(getActivity(), "Please add first", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), R.string.add_first, Toast.LENGTH_SHORT).show();
 
                 } else {
 
@@ -129,7 +129,7 @@ public class ExtractFragment extends Fragment {
 
                     MainActivity.appDatabase.prayerDao().update(prayer);
 
-                    Toast.makeText(getActivity(), "Extracted successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), R.string.extracted_successfully, Toast.LENGTH_SHORT).show();
                 }
 
                 editTextFajr.setText("");

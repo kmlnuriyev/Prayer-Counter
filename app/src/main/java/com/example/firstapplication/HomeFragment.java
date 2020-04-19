@@ -127,7 +127,7 @@ public class HomeFragment extends Fragment {
                     MainActivity.appDatabase.prayerDao().update(prayer);
                 }
 
-                Toast.makeText(getActivity(), "Added successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.added_successfully, Toast.LENGTH_SHORT).show();
 
                 editTextFajr.setText("");
                 editTextDhuhr.setText("");

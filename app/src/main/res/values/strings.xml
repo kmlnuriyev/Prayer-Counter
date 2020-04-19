@@ -38,4 +38,7 @@
     \"Nəticə\" bölməsində əlavə olaraq qəza günlərinin sayı da göstərilir. Diqqət edin ki, qəza günlərinin sayı o halda azalır ki, gün üçün bütün namazlar qılınmış olsun.
 
     Qeyd: \"Nəticə\" bölməsində qılınmayan qəza namazlarının sayı göstərilir."</string>
+    <string name="add_first">Əvvəlcə əlavə etməlisiniz</string>
+    <string name="extracted_successfully">Uğurla çıxıldı</string>
+    <string name="added_successfully">Uğurla əlavə edildi</string>
 </resources>
